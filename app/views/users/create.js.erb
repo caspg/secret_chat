@@ -1,0 +1,4 @@
+$("<%= escape_javascript(render @guest) %>")
+  .appendTo("#guests");
+
+$("input[name='user[login]']").val('')

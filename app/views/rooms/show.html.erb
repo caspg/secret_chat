@@ -1,8 +1,22 @@
-<div class="container user-invites">
-  <%= form_with model: @guest do |form| %>
-    <%= form.text_field :login, placeholder: "guest login", class: "form-control", required: true %>
-    <%= form.hidden_field :room_id %>
+<div class="container-fluid user-invites">
+  <div class="card p-4">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= form_with model: @guest do |form| %>
+          <%= form.text_field :login, placeholder: "guest login", class: "form-control", required: true %>
+          <%= form.hidden_field :room_id %>
 
-    <%= form.submit class: "btn btn-primary btn-block" %>
-  <% end %>
+          <%= form.submit class: "btn btn-primary btn-block", value: "Invite user" %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-9">
+        <h4>Invited guests:</h4>
+
+        <ul id="guests" class="list-group">
+          <%= render @guests %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

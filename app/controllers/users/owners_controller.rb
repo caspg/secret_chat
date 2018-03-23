@@ -1,7 +1,6 @@
 module Users
   class OwnersController < ApplicationController
     def create
-      # TODO: validate params
       owner = create_user
       room = create_room(owner)
 
