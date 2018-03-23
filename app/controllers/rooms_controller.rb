@@ -5,14 +5,14 @@ class RoomsController < ApplicationController
     # will return all needed objects (room, user, guests)?
     #
     room = find_room
-    user = find_user
+    @user = find_user
 
-    redirect_to root_path if !room || !user
+    redirect_to root_path if !room || !@user
 
     @guest = User.new(room_id: room.id)
     @guests = room.guests
     @room_secret_id = room.secret_id
-    @user_is_room_admin = room.owner == user
+    @user_is_room_admin = room.owner == @user
   end
 
   private

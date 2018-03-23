@@ -1,4 +1,6 @@
 <div class="container-fluid user-invites">
+  <h4>Hello, <%= @user.login %> <%= @user_is_room_admin ? '(Admin)' : '' %>!</h4>
+
   <% if @user_is_room_admin %>
     <div class="card p-4">
       <div class="row">
