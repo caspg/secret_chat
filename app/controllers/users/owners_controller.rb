@@ -14,7 +14,7 @@ module Users
     private
 
     def create_user
-      UseCases::Users::CreateUser.perform(params[:user_login])
+      UseCases::Users::CreateUser.new(login: params[:user_login]).perform
     end
 
     def create_room(owner)
