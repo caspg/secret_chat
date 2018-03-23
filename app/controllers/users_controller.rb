@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def create
     @guest = create_guest_user
+    @room_secret_id = guest.room.secure_id
 
     respond_to do |format|
       format.js {}
-      format.json { render json: @guest, status: :created }
     end
   end
 

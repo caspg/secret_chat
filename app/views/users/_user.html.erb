@@ -1,3 +1,10 @@
 <li class="user-item list-group-item">
-  <input disabled type="text" value="<%= user.secret_id %>"> @<%= user.login %>
+  <div class="row">
+    <div class="col-sm-3">
+      @<%= user.login %>
+    </div>
+    <div class="col-sm-9">
+      <input disabled type="text" value="<%= guest_room_url(room_secret_id, user.secret_id) %>">
+    </div>
+  </div>
 </li>

@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
 
     @guest = User.new(room_id: room.id)
     @guests = room.guests
+    @room_secret_id = room.secret_id
   end
 
   private

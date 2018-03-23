@@ -1,4 +1,4 @@
-$("<%= escape_javascript(render @guest) %>")
+$("<%= escape_javascript(render partial: 'user', locals: { user: @guest, room_secret_id: @room_secret_id }) %>")
   .appendTo("#guests");
 
 $("input[name='user[login]']").val('')
