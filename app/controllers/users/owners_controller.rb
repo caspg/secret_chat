@@ -4,6 +4,11 @@ module Users
       # TODO: validate params
       owner = create_user
       room = create_room(owner)
+
+      redirect_to room_path(
+        room_secret_id: room.secret_id,
+        user_secret_id: owner.secret_id
+      )
     end
 
     private

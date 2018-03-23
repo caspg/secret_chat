@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   namespace 'users' do
     post 'owners', to: 'owners#create'
   end
+
+  get '/:room_secret_id/:user_secret_id', to: 'rooms#show', as: :room
 end
