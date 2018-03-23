@@ -12,6 +12,7 @@ class RoomsController < ApplicationController
     @guest = User.new(room_id: room.id)
     @guests = room.guests
     @room_secret_id = room.secret_id
+    @user_is_room_admin = room.owner == user
   end
 
   private

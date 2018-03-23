@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def create
     @guest = create_guest_user
-    @room_secret_id = guest.room.secure_id
+    @room_secret_id = @guest.room.secret_id
 
     respond_to do |format|
       format.js {}
