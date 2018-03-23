@@ -1,5 +1,5 @@
 module UseCases
-  module Rooms
+  module Users
     class FindUserBySecret
       def self.perform(user_secret_id)
         User.find_by(secret_id: user_secret_id)
