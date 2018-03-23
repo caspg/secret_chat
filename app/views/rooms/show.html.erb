@@ -1,1 +1,8 @@
-<h2>Views/Rooms/Show</h2>
+<div class="container user-invites">
+  <%= form_with model: @guest do |form| %>
+    <%= form.text_field :login, placeholder: "guest login", class: "form-control", required: true %>
+    <%= form.hidden_field :room_id %>
+
+    <%= form.submit class: "btn btn-primary btn-block" %>
+  <% end %>
+</div>
