@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20180323182101) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name", null: false
     t.index ["secret_id"], name: "index_rooms_on_secret_id", unique: true
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180323182101) do
     t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "login"
+    t.string "login", null: false
     t.index ["room_id"], name: "index_users_on_room_id"
     t.index ["secret_id"], name: "index_users_on_secret_id", unique: true
   end
