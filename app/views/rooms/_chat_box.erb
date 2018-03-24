@@ -6,22 +6,7 @@
   <div class="card-body">
 
     <ul class="list-group room-messages">
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
-      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message", collection: @messages, as: :message %>
     </ul>
 
     <div class="input-group submit-form">

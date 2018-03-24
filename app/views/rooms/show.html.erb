@@ -5,5 +5,5 @@
     <%= render partial: "user_invites_box", locals: { guest: @guest, guests: @guests, room: @room } %>
   <% end %>
 
-  <%= render partial: "chat_box", locals: { room: @room } %>
+  <%= render partial: "chat_box", locals: { room: @room, messages: @messages } %>
 </div>

@@ -12,6 +12,8 @@ class RoomsController < ApplicationController
     @guest = User.new(room_id: @room.id)
     @guests = @room.guests
     @user_is_room_admin = @room.owner == @user
+
+    @messages = Message.includes(:user).limit(20) # TODO
   end
 
   private
