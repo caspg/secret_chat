@@ -1,26 +1,7 @@
-<div class="container-fluid user-invites">
+<div class="container-fluid">
   <h4>Hello, <%= @user.login %> <%= @user_is_room_admin ? '(Admin)' : '' %>!</h4>
 
   <% if @user_is_room_admin %>
-    <div class="card p-4">
-      <div class="row">
-        <div class="col-sm-3">
-          <%= form_with model: @guest do |form| %>
-            <%= form.text_field :login, placeholder: "guest login", class: "form-control", required: true %>
-            <%= form.hidden_field :room_id %>
-
-            <%= form.submit class: "btn btn-primary btn-block", value: "Invite user" %>
-          <% end %>
-        </div>
-
-        <div class="col-sm-9">
-          <h4>Invited guests:</h4>
-
-          <ul id="guests" class="list-group">
-            <%= render partial: 'users/user', collection: @guests, as: :user, locals: { room_secret_id: @room_secret_id } %>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "user_invites_box", locals: { guest: @guest, guests: @guests } %>
   <% end %>
 </div>
