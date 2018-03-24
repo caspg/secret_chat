@@ -1,0 +1,35 @@
+<div class="card chat-box">
+  <div class="card-header">
+    Room topic: <b><%= room.name %></b>
+  </div>
+
+  <div class="card-body">
+
+    <ul class="list-group room-messages">
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+      <%= render partial: "chat_message" %>
+    </ul>
+
+    <div class="input-group submit-form">
+      <div class="input-group-prepend">
+        <input class="btn btn-outline-secondary" type="submit" value="+">
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+    </div>
+
+  </div>
+</div>

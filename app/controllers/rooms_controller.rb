@@ -4,13 +4,13 @@ class RoomsController < ApplicationController
     # TODO: should there be just single UseCase that
     # will return all needed objects (room, user, guests)?
     #
-    room = find_room
+    @room = find_room
     @user = find_user
 
-    return redirect_to root_path if !room || !@user
+    return redirect_to root_path if !@room || !@user
 
-    @guest = User.new(room_id: room.id)
-    @guests = room.guests
+    @guest = User.new(room_id: @room.id)
+    @guests = @room.guests
     @room_secret_id = room.secret_id
     @user_is_room_admin = room.owner == @user
   end

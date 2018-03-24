@@ -14,3 +14,7 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+
+$(document).ready(function() {
+  $('.room-messages').scrollTop($('.room-messages')[0].scrollHeight)
+})

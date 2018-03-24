@@ -1,6 +1,5 @@
 .user-invites {
   width: 100%;
-  padding: 15px;
   margin: 0 auto;
   margin-top: 20px;
 
@@ -13,5 +12,25 @@
 
   input[type="submit"] {
     margin-top: 10px;
+  }
+}
+
+.chat-box {
+  margin-top: 30px;
+  height: 65vh;
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .room-messages {
+    flex-grow: 1;
+    overflow: scroll;
+  }
+
+  .submit-form {
+    margin-top: 15px;
+    min-height: 45px;
   }
 }

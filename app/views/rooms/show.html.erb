@@ -2,6 +2,8 @@
   <h4>Hello, <%= @user.login %> <%= @user_is_room_admin ? '(Admin)' : '' %>!</h4>
 
   <% if @user_is_room_admin %>
-    <%= render partial: "user_invites_box", locals: { guest: @guest, guests: @guests } %>
+    <%= render partial: "user_invites_box", locals: { guest: @guest, guests: @guests, room: @room } %>
   <% end %>
+
+  <%= render partial: "chat_box", locals: { room: @room } %>
 </div>
