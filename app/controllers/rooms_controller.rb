@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
     room = find_room
     @user = find_user
 
-    redirect_to root_path if !room || !@user
+    return redirect_to root_path if !room || !@user
 
     @guest = User.new(room_id: room.id)
     @guests = room.guests
