@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/:room_secret_id/:user_secret_id', to: 'rooms#show', as: :room
 
   post 'users', to: 'users#create', as: :users
+  post '/:room_secret_id/:user_secret_id/messages', to: 'messages#create', as: :messages
 end

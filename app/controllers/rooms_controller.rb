@@ -13,7 +13,9 @@ class RoomsController < ApplicationController
     @guests = @room.guests
     @user_is_room_admin = @room.owner == @user
 
-    @messages = Message.includes(:user).limit(20) # TODO
+    # TODO: create use_case
+    @messages = @room.messages.limit(50).includes(:user)
+    @new_message = Message.new
   end
 
   private

@@ -6,15 +6,18 @@
   <div class="card-body">
 
     <ul class="list-group room-messages">
-      <%= render partial: "chat_message", collection: @messages, as: :message %>
+      <%= render partial: "chat_message", collection: messages, as: :message %>
     </ul>
 
-    <div class="input-group submit-form">
-      <div class="input-group-prepend">
-        <input class="btn btn-outline-secondary" type="submit" value="+">
+    <%= form_with model: new_message, local: true do |form| %>
+      <div class="input-group submit-form">
+        <div class="input-group-prepend">
+          <%= form.submit class: "btn btn-outline-secondary", value: "+", data: { disable_with: "+" } %>
+        </div>
+
+        <%= form.text_field :content, class: "form-control", placeholder: "message", required: true, autofocus: true %>
       </div>
-      <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-    </div>
+    <% end %>
 
   </div>
 </div>
