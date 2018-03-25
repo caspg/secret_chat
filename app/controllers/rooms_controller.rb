@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  NUMBER_OF_VISIBLE_MESSAGES = 50
+
   def show
     #
     # TODO: should there be just single UseCase that
@@ -14,7 +16,7 @@ class RoomsController < ApplicationController
     @user_is_room_admin = @room.owner == @user
 
     # TODO: create use_case
-    @messages = @room.messages.limit(50).includes(:user)
+    @messages = @room.messages.includes(:user).last(NUMBER_OF_VISIBLE_MESSAGES)
     @new_message = Message.new
   end
 
