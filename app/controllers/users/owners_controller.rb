@@ -13,11 +13,16 @@ module Users
     private
 
     def create_user
-      UseCases::Users::CreateUser.new(login: params[:user_login]).perform
+      ctx = Users::CreateUser.call(login: params[:user_login])
+      ctx.user
     end
 
     def create_room(owner)
-      UseCases::Rooms::CreateRoom.perform(owner.id, params[:room_name])
+      ctx = Rooms::CreateRoom.call(
+        owner_id: owner.id, room_name:
+        params[:room_name]
+      )
+      ctx.room
     end
   end
 end
