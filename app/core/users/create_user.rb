@@ -18,7 +18,7 @@ module Users
 
     def merged_user_params
       user_params.merge(
-        secret_id: UseCases::GenerateSecretId.perform
+        secret_id: GenerateSecretId.call
       )
     end
   end

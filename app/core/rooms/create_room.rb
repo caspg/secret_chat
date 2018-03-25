@@ -20,7 +20,7 @@ module Rooms
       {
         user_id: owner.id,
         name: room_name,
-        secret_id: UseCases::GenerateSecretId.perform
+        secret_id: GenerateSecretId.call
       }
     end
   end

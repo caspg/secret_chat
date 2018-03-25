@@ -23,10 +23,12 @@ class RoomsController < ApplicationController
   private
 
   def find_room
-    UseCases::Rooms::FindRoomBySecret.perform(params[:room_secret_id])
+    ctx = Rooms::FindBySecretId.call(room_secret_id: params[:room_secret_id])
+    ctx.room
   end
 
   def find_user
-    UseCases::Users::FindUserBySecret.perform(params[:user_secret_id])
+    ctx = Users::FindBySecretId.call(user_secret_id: params[:user_secret_id])
+    ctx.user
   end
 end
