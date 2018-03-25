@@ -19,9 +19,8 @@ class RoomsController < ApplicationController
     @room = result.room
     @messages = result.messages
     @guests = result.guests
-    @new_guest = result.new_guest
 
+    @new_guest = result.new_guest
     @new_message = Message.new
-    @user_is_room_admin = @room.owner == current_user
   end
 end

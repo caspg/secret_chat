@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h4>Hello, <%= current_user.login %> <%= @user_is_room_admin ? '(Admin)' : '' %>!</h4>
 
-  <% if @user_is_room_admin %>
+  <% if user_is_room_admin?(@room, current_user) %>
     <%= render partial: "user_invites_box", locals: { new_guest: @new_guest, guests: @guests, room: @room } %>
   <% end %>
 
