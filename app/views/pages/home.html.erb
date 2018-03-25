@@ -1,4 +1,11 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <div class="home-main-container text-center">
+
   <div class="container">
     <div class="row justify-content-center">
       <h2>Welcome to the Secret Chat</h2>
@@ -6,8 +13,8 @@
 
     <div class="row">
       <%= form_with url: users_owners_path, class: "main-form", local: true do |form| %>
-        <%= form.text_field :user_login, class: "form-control", placeholder: "Login" %>
-        <%= form.text_field :room_name, class: "form-control", placeholder: "Secret room name" %>
+        <%= form.text_field :user_login, class: "form-control", placeholder: "Login", required: true %>
+        <%= form.text_field :room_name, class: "form-control", placeholder: "Secret room name", required: true %>
 
         <%= form.submit class: "btn btn-lg btn-primary btn-block" %>
       <% end %>

@@ -9,7 +9,9 @@ module Users
           user_secret_id: result.owner.secret_id
         )
       else
-        #
+        flash[:error] = 'Invalid params!'
+
+        redirect_to root_path
       end
     end
 
