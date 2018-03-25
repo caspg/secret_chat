@@ -1,15 +1,11 @@
-# TODO: refactor me please
 class MessagesController < ApplicationController
   def create
-    # TODO: maybe handle disabled-JS
-
     message = Message.create(message_params)
-    NewMessageJobJob.perform_later(message)
 
-    # redirect_to room_path(
-    #   user_secret_id: current_user.secret_id,
-    #   room_secret_id: current_room.secret_id
-    # )
+    respond_to do |format|
+      format.js { NewMessageJobJob.perform_later(message) }
+      format.html { redirect_to_room_path }
+    end
   end
 
   private
@@ -22,10 +18,19 @@ class MessagesController < ApplicationController
   end
 
   def current_user
+    # TODO: create use_case for finding
     @current_user ||= User.find_by(secret_id: params[:user_secret_id])
   end
 
   def current_room
+    # TODO: create use_case for finding
     @current_room ||= Room.find_by(secret_id: params[:room_secret_id])
+  end
+
+  def redirect_to_room_path
+    redirect_to room_path(
+      user_secret_id: current_user.secret_id,
+      room_secret_id: current_room.secret_id
+    )
   end
 end
