@@ -2,7 +2,7 @@
   <div class="card p-4">
     <div class="row">
       <div class="col-sm-3">
-        <%= form_with model: guest do |form| %>
+        <%= form_with model: new_guest do |form| %>
           <%= form.text_field :login, placeholder: "guest login", class: "form-control", required: true %>
           <%= form.hidden_field :room_id %>
 
