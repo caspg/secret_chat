@@ -19,7 +19,7 @@ module Users
 
     def create_owner_and_room
       CreateOwnerAndRoom.call(
-        login: params[:user_login],
+        user_params: { login: params[:user_login] },
         room_name: params[:room_name]
       )
     end

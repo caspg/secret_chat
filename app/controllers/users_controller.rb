@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   private
 
   def create_guest_user
-    UseCases::Users::CreateUser.new(user_params).perform
+    ctx = Users::CreateUser.call(user_params: user_params)
+    ctx.user
   end
 
   def user_params

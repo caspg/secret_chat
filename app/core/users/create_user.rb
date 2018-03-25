@@ -2,10 +2,10 @@ module Users
   class CreateUser
     include Interactor
 
-    delegate :login, to: :context
+    delegate :user_params, to: :context
 
     def call
-      user = User.new(user_params)
+      user = User.new(merged_user_params)
 
       if user.save
         context.user = user
@@ -16,11 +16,10 @@ module Users
 
     private
 
-    def user_params
-      {
-        login: login,
+    def merged_user_params
+      user_params.merge(
         secret_id: UseCases::GenerateSecretId.perform
-      }
+      )
     end
   end
 end
