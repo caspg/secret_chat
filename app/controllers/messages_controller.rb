@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     result = Messages::Create.call(message_params: message_params)
 
     respond_to do |format|
-      format.js { NewMessageJobJob.perform_later(result.message) }
+      format.js { NewMessageJob.perform_later(result.message) }
       format.html { redirect_to_room_path }
     end
   end
