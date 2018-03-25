@@ -1,4 +1,4 @@
-<div class="card chat-box">
+<div class="card chat-box" data-room-secret-id="<%= room.secret_id %>">
   <div class="card-header">
     Room topic: <b><%= room.name %></b>
   </div>
@@ -9,7 +9,7 @@
       <%= render partial: "chat_message", collection: messages, as: :message %>
     </ul>
 
-    <%= form_with model: new_message, local: true do |form| %>
+    <%= form_with model: new_message, id: "new_message_form" do |form| %>
       <div class="input-group submit-form">
         <div class="input-group-prepend">
           <%= form.submit class: "btn btn-outline-secondary", value: "+", data: { disable_with: "+" } %>

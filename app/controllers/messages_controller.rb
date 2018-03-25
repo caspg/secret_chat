@@ -1,12 +1,15 @@
-# TODO refactor me please
+# TODO: refactor me please
 class MessagesController < ApplicationController
   def create
-    Message.create(message_params)
+    # TODO: maybe handle disabled-JS
 
-    redirect_to room_path(
-      user_secret_id: current_user.secret_id,
-      room_secret_id: current_room.secret_id
-    )
+    message = Message.create(message_params)
+    NewMessageJobJob.perform_later(message)
+
+    # redirect_to room_path(
+    #   user_secret_id: current_user.secret_id,
+    #   room_secret_id: current_room.secret_id
+    # )
   end
 
   private
