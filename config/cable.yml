@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:8d2fb42fc866124aaeda85b98f45e6c8@koi.redistogo.com:11667/
   channel_prefix: secret_chat_production
