@@ -2,6 +2,8 @@ module Rooms
   class CreateRoom
     include Interactor
 
+    delegate :owner_id, :room_name, to: :context
+
     def call
       room = Room.new(room_params)
 
@@ -16,8 +18,8 @@ module Rooms
 
     def room_params
       {
-        user_id: context.owner_id,
-        name: context.room_name,
+        user_id: owner_id,
+        name: room_name,
         secret_id: UseCases::GenerateSecretId.perform
       }
     end

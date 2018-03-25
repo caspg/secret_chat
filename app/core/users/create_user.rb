@@ -2,6 +2,8 @@ module Users
   class CreateUser
     include Interactor
 
+    delegate :login, to: :context
+
     def call
       user = User.new(user_params)
 
@@ -16,7 +18,7 @@ module Users
 
     def user_params
       {
-        login: context.login,
+        login: login,
         secret_id: UseCases::GenerateSecretId.perform
       }
     end
