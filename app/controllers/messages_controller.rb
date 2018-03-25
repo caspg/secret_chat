@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
   def create
-    message = Message.create(message_params)
+    result = Messages::Create.call(message_params: message_params)
 
     respond_to do |format|
-      format.js { NewMessageJobJob.perform_later(message) }
+      format.js { NewMessageJobJob.perform_later(result.message) }
       format.html { redirect_to_room_path }
     end
   end
@@ -17,14 +17,13 @@ class MessagesController < ApplicationController
     )
   end
 
-  def current_user
-    # TODO: create use_case for finding
-    @current_user ||= User.find_by(secret_id: params[:user_secret_id])
+  def current_room
+    @current_room ||= find_room
   end
 
-  def current_room
-    # TODO: create use_case for finding
-    @current_room ||= Room.find_by(secret_id: params[:room_secret_id])
+  def find_room
+    ctx = Rooms::FindBySecretId.call(room_secret_id: params[:room_secret_id])
+    ctx.room
   end
 
   def redirect_to_room_path
